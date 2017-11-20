@@ -1,6 +1,9 @@
-<section class="album-covers container clearfix">
+<section>
   <h1>Bloc Chat</h1>
   <h2>Chat Rooms</h2>
+  <div>
+    <button type='button' ng-click='home.popUp()'>New Room</button>
+  </div>
   <div ng-repeat='room in home.chatRooms'>
     <p>{{room.$value}}</p>
   </div>
