@@ -1,1 +1,7 @@
-<h1>Home Page</h1>
+<section class="album-covers container clearfix">
+  <h1>Bloc Chat</h1>
+  <h2>Chat Rooms</h2>
+  <div ng-repeat='room in home.chatRooms'>
+    <p>{{room.$value}}</p>
+  </div>
+</section>
