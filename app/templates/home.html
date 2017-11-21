@@ -1,10 +1,19 @@
-<section>
-  <h1>Bloc Chat</h1>
-  <h2>Chat Rooms</h2>
+<section class='sidebar'>
   <div>
-    <button type='button' ng-click='home.popUp()'>New Room</button>
+    <h1>Bloc Chat</h1>
+    <button class='sidebar-btn' type='button' ng-click='home.popUp()'>New Room</button>
   </div>
   <div ng-repeat='room in home.chatRooms'>
-    <p>{{room.$value}}</p>
+    <h2 ng-click='home.activeRoom(room)'>{{room.$value}}</h2>
+  </div>
+</section>
+<section class='content-area'>
+  <div>
+    <h1>{{home.currentRoom.$value}}</h1>
+  </div>
+  <div ng-repeat='message in home.messages'>
+    <span ng-class-odd="'odd'" ng-class-even="'even'">
+      <p class='username'>{{message.username}}: {{message.sentAt}}<br>{{message.content}}</p>
+    </span>
   </div>
 </section>
