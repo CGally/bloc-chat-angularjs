@@ -1,11 +1,15 @@
 (function() {
-    function HomeCtrl(Room, Message, $uibModal) {
+    function HomeCtrl(Room, Message, $uibModal, $cookies) {
+        /**
+        * @desc Logs the current username
+        */
+        console.log($cookies.get('blocChatCurrentUser'));
+
         /**
         * @desc Sets chatRooms to Room.all
         * @type {Object}
         */
         this.chatRooms = Room.all;
-
         /**
         * @function popUp
         * @desc Creates a new modal instance when the button on home.html is clicked.
@@ -37,5 +41,5 @@
 
     angular
         .module('blocChat')
-        .controller('HomeCtrl', ['Room', 'Message', '$uibModal', HomeCtrl]);
+        .controller('HomeCtrl', ['Room', 'Message', '$uibModal', '$cookies', HomeCtrl]);
 })();

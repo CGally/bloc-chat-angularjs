@@ -15,6 +15,7 @@
   padding-right: 15px;
   padding-top: 30px;
   text-align: left;
+  overflow: scroll;
 
 }
 
@@ -30,6 +31,7 @@
   font-size: 20px;
   padding-left: 15px;
   padding-top: 20px;
+  margin: 0;
 }
 
 .sidebar h2:hover {
@@ -73,16 +75,6 @@ p {
 .even p {
   padding-top: 5px;
   padding-bottom: 5px;
-}
-
-.odd p:hover {
-  box-shadow: inset 1px 1px 3px #888888;
-  cursor: pointer;
-}
-
-.even p:hover {
-  box-shadow: inset 1px 1px 3px #888888;
-  cursor: pointer;
 }
 
 .my-modal-title {

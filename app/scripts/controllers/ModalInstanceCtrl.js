@@ -1,5 +1,5 @@
 (function() {
-    function ModalInstanceCtrl($uibModalInstance, Room) {
+    function ModalInstanceCtrl($uibModalInstance, Room, $cookies) {
         /**
         * @function addChat
         * @desc Calls the Room.add function and passes the information submited in the modal.
@@ -19,9 +19,20 @@
         this.cancel = function() {
             $uibModalInstance.dismiss({$value: 'cancel'});
         };
+
+        /**
+        * @function
+        * @desc Calls the $cookies.put function and passes the information submited in the modal.
+        * Then sets that information to the cookie 'blocChatCurrentUser'.
+        * @param {Object}
+        */
+        this.addUsername = function(username) {
+            $cookies.put('blocChatCurrentUser', username);
+            $uibModalInstance.close();
+        };
     }
 
     angular
         .module('blocChat')
-        .controller('ModalInstanceCtrl', ['$uibModalInstance', 'Room', ModalInstanceCtrl]);
+        .controller('ModalInstanceCtrl', ['$uibModalInstance', 'Room', '$cookies', ModalInstanceCtrl]);
 })();
