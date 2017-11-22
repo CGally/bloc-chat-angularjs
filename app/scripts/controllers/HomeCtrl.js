@@ -1,15 +1,27 @@
 (function() {
     function HomeCtrl(Room, Message, $uibModal, $cookies) {
         /**
-        * @desc Logs the current username
-        */
-        console.log($cookies.get('blocChatCurrentUser'));
-
-        /**
         * @desc Sets chatRooms to Room.all
         * @type {Object}
         */
         this.chatRooms = Room.all;
+
+        /**
+        * @desc Sets currentRoom to null
+        * @type {Object}
+        */
+        this.currentRoom = null;
+
+        /**
+        * @desc Sets currentUser to the username stored in the cookie 'blocChatCurrentUser'
+        * @type {Object}
+        */
+        this.currentUser = $cookies.get('blocChatCurrentUser');
+        /**
+        * @desc Logs the current username
+        */
+        console.log(this.currentUser);
+
         /**
         * @function popUp
         * @desc Creates a new modal instance when the button on home.html is clicked.
@@ -36,6 +48,17 @@
         this.activeRoom = function(room) {
             this.currentRoom = room;
             this.messages = Message.getByRoomId(this.currentRoom.$id);
+        };
+
+        /**
+        * @function sendMessage
+        * @desc Passes the message sent as an argument. Then calls the Message.sendMessage
+        * function and passes in this.currentUser, newMessage, this.currentRoom.$id as arguments
+        * @param {Object} username, content, roomId
+        */
+        this.sendMessage = function(newMessage) {
+            Message.send(this.currentUser, newMessage, this.currentRoom.$id);
+            this.newMessage = null;
         };
     }
 
