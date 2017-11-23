@@ -57,6 +57,9 @@
         * @param {Object} username, content, roomId
         */
         this.sendMessage = function(newMessage) {
+            this.currentUser = $cookies.get('blocChatCurrentUser');
+            console.log(this.currentUser);
+
             Message.send(this.currentUser, newMessage, this.currentRoom.$id);
             this.newMessage = null;
         };

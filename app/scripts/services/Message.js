@@ -39,7 +39,6 @@
      		     content: content,
      		     roomId: roomId,
      	  })
-        this.newMessage = '';
      };
     return Message;
   }
