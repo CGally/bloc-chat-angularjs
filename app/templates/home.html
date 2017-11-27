@@ -7,19 +7,18 @@
     <h2 ng-click='home.activeRoom(room)'>{{room.$value}}</h2>
   </div>
 </section>
+<div class='header'>
+  <h1>{{home.currentRoom.$value}}</h1>
+</div>
 <section class='content-area'>
-  <div>
-    <h1>{{home.currentRoom.$value}}</h1>
-  </div>
   <div ng-repeat='message in home.messages'>
     <span ng-class-odd="'odd'" ng-class-even="'even'">
       <p class='username'>{{message.username}}: {{message.sentAt | date: 'short'}}<br>{{message.content}}</p>
     </span>
   </div>
-  <div class='buffer'>
-    .
-  </div>
 </section>
+<div class='footer'>
+</div>
 <div class='message-area' ng-show='home.currentRoom'>
   <form ng-submit='home.sendMessage(home.newMessage)'>
     <textarea class='message-box' type='text' ng-model='home.newMessage' placeholder='Write your message here...' wrap='hard' autofocus></textarea>
